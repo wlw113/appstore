@@ -13,7 +13,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
 import{LoginUser,rules} from "@/utils/LoginRegisterValidators";
-import LoginForm from '@/components/Login/LoginForm.vue';
+import LoginForm from './components/LoginForm.vue';
 
 export default defineComponent({
     name:'login',

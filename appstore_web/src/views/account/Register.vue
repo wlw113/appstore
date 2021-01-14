@@ -10,9 +10,8 @@
 import { reactive,defineComponent,ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-
 import{regisertuser,rules} from "@/utils/LoginRegisterValidators";
-import RegisterForm from '@/components/Login/RegisterForm.vue';
+import RegisterForm from './components/RegisterForm.vue';
 
 export default defineComponent({
     name:'register',
