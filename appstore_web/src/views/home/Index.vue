@@ -1,5 +1,5 @@
 <template>
-    <div>应用管理</div>
+    <div>首页</div>
 </template>
 <script>
 export default {

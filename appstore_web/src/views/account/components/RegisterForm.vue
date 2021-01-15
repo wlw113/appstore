@@ -1,5 +1,5 @@
 <template>
- <h1>注册账号</h1>
+ <h1 class="login-title">注册账号</h1>
     <el-form :model="LoginUser" ref="LoginForm" :rules="rules" size="medium"   class="login-form">
          <el-form-item label="国家"  prop="userphone">
               <el-input type="text" placeholder="请输入手机号" v-model="regisertuser.country"></el-input>

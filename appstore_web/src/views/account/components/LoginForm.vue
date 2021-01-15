@@ -1,4 +1,5 @@
 <template>
+<h1 class="login-title">主账号登录</h1>
  <ul class="menu-tab">
                 <li  v-for="item in menuTab" :key="item.id" :class="{'current':item.current}" @click="toggleMenu(item)">{{item.txt}}</li>
             </ul>
@@ -30,6 +31,8 @@
 <script lang="ts">
 import { reactive,defineComponent,ref } from 'vue';
 import { ElForm, ElMessage } from 'element-plus';
+import { getCode } from '../../../service/account';
+import {useRoute, useRouter} from 'vue-router';
 export default {
     props:{
       LoginUser:{
@@ -41,7 +44,9 @@ export default {
         required:true
       }
     },
-    setup(){
+    setup(porps:any){
+
+      const router=useRouter();
       //menu菜单
       const menuTab=reactive([
           {txt:'短信验证码登录',current:true,type:'phoneLogin'},
@@ -89,14 +94,18 @@ export default {
         const LoginForm = ref<typeof ElForm>();
         // 登录
         const handleSubmit = async () => {
+          getCode(porps.LoginUser);
+          
             try {
                 const valid: boolean | undefined =  await LoginForm.value?.validate();
                 console.log(valid);
                 if(valid === true) {
                     // const res: boolean = await store.dispatch('userlogin/login',modelRef);
-                        ElMessage.success(('page.user.login.form.login-success'));
+                        // ElMessage.success(('page.user.login.form.login-success'));
+                        router.push("/Home");
                 }
             } catch (error) {
+                console.log(error);
                 // console.log(error);h
                 ElMessage.warning('登录异常');
             }
@@ -113,6 +122,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 .menu-tab{
     text-align:center;
     li{

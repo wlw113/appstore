@@ -1,7 +1,6 @@
 <template>
-  <div id="login">
+  <div class="login">
      <div class="login-wrap">
-            
             <!-- 登录 -->
             <LoginForm :LoginUser="LoginUser" :rules="rules"  />
      </div>
@@ -19,6 +18,9 @@ export default defineComponent({
     name:'login',
     components:{LoginForm},
     setup(){
+      
+
+        
       return {
        LoginUser,
        rules
@@ -27,14 +29,17 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-#login{
-height: 100vh;
-background-color: #ffffff;
-}
-.login-wrap{
-    width:330px;
-    margin:auto;
-}
+@import url('../../styles/account.scss');
+// .login{
+// height: 100vh;
+// background-color: #ffffff;
+// // background: url("../../assets/login/loginbackgroundImage.jpg") no-repeat;
+// background-size:100% 100%;
+// background-size: cover;
+// -webkit-background-size: cover;
+// -o-background-size: cover;
+// }
+
 .menu-tab{
     text-align:center;
     li{

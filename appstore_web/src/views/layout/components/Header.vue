@@ -7,7 +7,7 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item icon="el-icon-plus">修改密码</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-circle-plus">退出登录</el-dropdown-item>
+          <el-dropdown-item icon="el-icon-circle-plus"><router-link to="/">退出登录</router-link></el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

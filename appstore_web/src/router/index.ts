@@ -21,79 +21,54 @@ const routes: Array<RouteRecordRaw> = [
   }
   ,
   {
-    path:"/layout",
-    name:"layout",
+    path:"/index",
+    name:"index",
     meta:{
-      title:"首页"
+      title:"框架"
     },
-    component: ()=>import( "../views/layout/Index.vue")
-  },
-  {
-    path:"/Appmanage",
-    name:"Appmanage",
-    meta:{
-      title:"应用管理"
-    },
-    component: ()=>import( "../views/appmanage/Index.vue")
-  },
-  {
-    path:"/UserManage",
-    name:"UserManage",
-    meta:{
-      title:"用户管理"
-    },
-    
-    component: ()=>import( "../views/usermanage/Index.vue"),
+    component: ()=>import( "../views/layout/Index.vue"),
     children:[{
-      path:"/Appmanage",
-      name:"Appmanage",
+      path:"/Home",
+      name:"Home",
       meta:{
-        title:"应用管理1"
+        title:"首页" 
       },
-      component: ()=>import( "../views/appmanage/Index.vue"),
-      children:[{
+      component: ()=>import( "../views/home/Index.vue"),
+     },{
         path:"/Appmanage",
         name:"Appmanage",
         meta:{
-          title:"应用管理3"
+          title:"应用管理"
         },
         component: ()=>import( "../views/appmanage/Index.vue")
-      },{
-        path:"/Appmanage",
-        name:"Appmanage",
+      },
+      {
+        path:"/UserManage",
+        name:"UserManage",
         meta:{
-          title:"应用管理24"
+          title:"用户管理"
         },
-        component: ()=>import( "../views/appmanage/Index.vue")
+        component: ()=>import( "../views/usermanage/Index.vue"),
+      },
+      {
+        path:"/Suggest",
+        name:"Suggest",
+        meta:{
+          title:"建议&反馈"
+        },
+        component: ()=>import( "../views/suggest/Index.vue")
+      },
+      {
+        path:"/Operationlog",
+        name:"Operationlog",
+        meta:{
+          title:"操作日志"
+        },
+        component: ()=>import( "../views/operationlog/Index.vue")
       }
-    ]
-    },{
-      path:"/Appmanage",
-      name:"Appmanage",
-      meta:{
-        title:"应用管理2"
-      },
-      component: ()=>import( "../views/appmanage/Index.vue")
-    }
   ]
-    
   },
-  {
-    path:"/Suggest",
-    name:"Suggest",
-    meta:{
-      title:"建议&反馈"
-    },
-    component: ()=>import( "../views/suggest/Index.vue")
-  },
-  {
-    path:"/Operationlog",
-    name:"Operationlog",
-    meta:{
-      title:"操作日志"
-    },
-    component: ()=>import( "../views/operationlog/Index.vue")
-  }
+ 
 ];
 
 const router = createRouter({

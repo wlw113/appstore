@@ -1,0 +1,28 @@
+.login-wrap{
+    position: fixed;
+    top:200px;
+    right: 200px;
+    width:330px;
+    margin:auto;
+    border-radius:25px;
+    padding:20px 20px;
+    background-color: rgba(0,0,0,.4);
+}
+.login-title{
+    text-align:center;
+    color:white;
+  }
+  .cao{
+      height: 20px;
+  }
+.login{
+    height: 100vh;
+    background: url("../assets/login/loginbackgroundImage.jpg") no-repeat;
+    background-size:100% 100%;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    }
+    .foot a{
+        padding: 0 10px;
+    }

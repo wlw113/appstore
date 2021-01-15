@@ -1,5 +1,5 @@
 <template>
-  <div id="login">
+  <div class="login">
      <div class="login-wrap">
             <!-- 注册 -->
             <RegisterForm :regisertuser="regisertuser" :rules="rules"  />
@@ -25,14 +25,9 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-#login{
-height: 100vh;
-background-color: #ffffff;
-}
-.login-wrap{
-    width:330px;
-    margin:auto;
-}
+@import url('../../styles/account.scss');
+
+
 .menu-tab{
     text-align:center;
     li{

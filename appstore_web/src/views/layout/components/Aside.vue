@@ -12,18 +12,24 @@
     <template v-for="item in routers" > 
       <!-- <template v-if=""> -->
         <!-- 一级菜单 -->
-      <template v-if="!item.children">
-         <el-menu-item   :index="item.path">
-              <i class="el-icon-menu"></i>
-              <template #title>{{item.meta && item.meta.title}}</template>
-         </el-menu-item>
+      <template v-if="item.children">
+        <template v-for="children in item.children">
+          <router-link :to="children">
+          <el-menu-item   :index="children.path">
+                <i class="el-icon-menu"></i>
+                <template #title>
+                  {{children.meta && children.meta.title}}
+                </template>
+          </el-menu-item>  
+          </router-link>
+        </template>
       </template>
-       <!-- 子级菜单 -->
+       <!-- 子级菜单
        <template v-else>
          <el-submenu  :index="item.path">
             <template #title>
               <i class="el-icon-location"></i>
-              <span>{{item.meta && item.meta.title}}</span>
+              <span><router-link :to="item.path">{{item.meta && item.meta.title}}</router-link></span>
             </template>
             <template v-if="item.children.length" >
                  <el-menu-item v-for="childrenitem in item.children" :index="childrenitem.path">
@@ -33,7 +39,7 @@
                  </el-menu-item>
             </template>
         </el-submenu>
-       </template>
+       </template> -->
       <!-- </template> -->
     </template>
     </el-menu>
