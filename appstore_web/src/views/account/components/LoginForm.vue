@@ -29,9 +29,9 @@
           </div>
 </template>
 <script lang="ts">
-import { reactive,defineComponent,ref } from 'vue';
+import { reactive,defineComponent,ref,getCurrentInstance} from 'vue';
 import { ElForm, ElMessage } from 'element-plus';
-import { getCode } from '../../../service/account';
+import { getCode,accountLogin } from '../../../service/account';
 import {useRoute, useRouter} from 'vue-router';
 export default {
     props:{
@@ -45,7 +45,7 @@ export default {
       }
     },
     setup(porps:any){
-
+      const ctx=getCurrentInstance();
       const router=useRouter();
       //menu菜单
       const menuTab=reactive([
@@ -59,6 +59,8 @@ export default {
               });
               //高光
               data.current=true;
+            console.log(ctx);
+             
           }
        //验证码按钮
         const codeButton=reactive({
@@ -94,14 +96,13 @@ export default {
         const LoginForm = ref<typeof ElForm>();
         // 登录
         const handleSubmit = async () => {
-          getCode(porps.LoginUser);
-          
             try {
                 const valid: boolean | undefined =  await LoginForm.value?.validate();
                 console.log(valid);
                 if(valid === true) {
                     // const res: boolean = await store.dispatch('userlogin/login',modelRef);
                         // ElMessage.success(('page.user.login.form.login-success'));
+                        // const response: ResponseDataaccountLogin(porps.LoginUser)
                         router.push("/Home");
                 }
             } catch (error) {

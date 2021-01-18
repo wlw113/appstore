@@ -8,6 +8,13 @@ export function getCode(params:any){
     params:params
 })
 }
+export async function accountLogin(params: any): Promise<any> {
+    return service.request({
+        url: '/user/login',
+        method: 'POST',
+        data: params,
+    });
+}
 
 // service.request({
 //     url:'/user',

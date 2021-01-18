@@ -14,11 +14,11 @@
         <!-- 一级菜单 -->
       <template v-if="item.children">
         <template v-for="children in item.children">
-          <router-link :to="children">
+          <router-link :to="children.path">
           <el-menu-item   :index="children.path">
                 <i class="el-icon-menu"></i>
                 <template #title>
-                  {{children.meta && children.meta.title}}
+                  {{ children.title}}
                 </template>
           </el-menu-item>  
           </router-link>
